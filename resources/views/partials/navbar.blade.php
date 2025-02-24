@@ -1,43 +1,41 @@
-<nav class="navbar">
-    <a class="brand-logo" href="/"><img src="assets/image/Title Icon.jpeg" alt=""></a>
-    <ul class="nav-link">
-        <li><a href="#">Category</a></li>
-        <li>
-            <div class="search-bar">
-                <input type="text" placeholder="Type here to search...">
-                <button>Search</button>
-            </div>
-        </li>
-    </ul>
-
-    <ul>
-        @auth('customer')
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Welcome back, {{ auth('customer')->user()->customer_first_name }} 
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-person-circle"></i> My Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button type="submit" class="dropdown-item">
-                                <i class="bi bi-box-arrow-right"></i> 
-                                     Logout
-                            </button>
-                        </form>                        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-left">
+            <img class="logo" src="assets/image/logo.png" alt="logo">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#">Category</a></li>
+                    <li class="search-container">
+                        <img src="assets/image/search.png" alt="search-icon">
+                        <form action="#" class="search-form">
+                            <input type="text" placeholder="Search" name="search">
+                        </form>
                     </li>
                 </ul>
-            </li>
-        @else
-            <li class="nav-links">
+            </nav>
+        </div>
+
+
+        <div class="nav-right">
+            <ul class="nav-links">
                 <li>
-                    <a href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    <a href="#">
+                        <button class="cart-btn">
+                            <img src="assets/image/cart.png" alt="cart-icon">
+                        </button>
+                    </a>
                 </li>
-            </li>
-        @endauth
-    </ul>
-    
-    
-</nav>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
+    </header>
+</body>
+</html>
